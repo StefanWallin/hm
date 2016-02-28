@@ -10,8 +10,5 @@ I assume you use OS X since this is a React Native iOS application.
 * `cd hm/HM`
 * `open ios/HM.xcodeproj`
 
-# Run tests once
+# Run tests
 `npm test`
-
-# Run continuously tests watching changes
-`npm run-script watch`
