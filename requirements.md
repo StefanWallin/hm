@@ -1,6 +1,11 @@
 # HM Todo
 - [x] Setup BE Testing
+- [ ] App Configuration Model
+  - [ ] Current User
+    - [ ] ID-number
+    - [ ] Onboarded
 - [ ] User Model
+  - [ ] ID-number
   - [ ] Name
   - [ ] E-Mail (from device?!)
 - [ ] Measurements Model
