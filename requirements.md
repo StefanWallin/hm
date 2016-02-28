@@ -1,0 +1,21 @@
+# HM Todo
+- [ ] User Model
+  - [ ] Name
+  - [ ] E-Mail (from device?!)
+- [ ] Measurements Model
+  - [ ] Left Biceps
+  - [ ] Right Biceps
+  - [ ] Bosom
+  - [ ] Tummy
+  - [ ] Butt
+  - [ ] Left Thighs
+  - [ ] Right Thighs
+  - [ ] Left Calfs
+  - [ ] Right Thighs
+- [ ] Weights Model
+  - [ ] Weight
+  - [ ] Weight unit
+  - [ ] Fat percentage
+- [ ] Storage
+  - [ ] Retrieve on startup
+  - [ ] Update programmatically
