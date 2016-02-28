@@ -1,5 +1,5 @@
 # HM Todo
-- [ ] Setup BE Testing
+- [x] Setup BE Testing
 - [ ] User Model
   - [ ] Name
   - [ ] E-Mail (from device?!)
