@@ -1,0 +1,17 @@
+{
+  "name": "HM2",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "mocha --watch --compilers js:./test/support/compiler --recursive app/**/*.spec.js"
+  },
+  "dependencies": {
+    "react-native": "^0.21.0",
+    "realm": "^0.10.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5",
+    "react-addons-test-utils": "^0.14.7"
+  }
+}

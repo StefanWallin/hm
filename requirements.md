@@ -1,5 +1,13 @@
-# HM Todo
-- [x] Setup BE Testing
+# Requirements
+- [ ] Setup storage
+  - [ ] Setup configuration storage
+  - [ ] Setup models storage
+  - [ ] Retrieve on startup
+  - [ ] Update programmatically
+- [ ] Setup BE Testing
+  - [x] Scaffold testing
+  - [ ] Get testing working
+  - [ ] Fix testing of storage
 - [ ] App Configuration Model
   - [ ] Current User
     - [ ] ID-number
@@ -22,6 +30,6 @@
   - [ ] Weight
   - [ ] Weight unit
   - [ ] Fat percentage
-- [ ] Storage
-  - [ ] Retrieve on startup
-  - [ ] Update programmatically
+- [ ] Hookup to backend
+  - [ ] Create uuid for User
+  - [ ] Sync with backend
