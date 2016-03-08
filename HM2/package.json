@@ -7,11 +7,8 @@
     "test": "mocha --watch --compilers js:./test/support/compiler --recursive app/**/*.spec.js"
   },
   "dependencies": {
-    "react-native": "^0.21.0",
-    "realm": "^0.10.0"
-  },
-  "devDependencies": {
-    "mocha": "^2.4.5",
-    "react-addons-test-utils": "^0.14.7"
+    "react-native": "^0.20.0",
+    "realm": "^0.10.0",
+    "uuid": "^2.0.1"
   }
 }

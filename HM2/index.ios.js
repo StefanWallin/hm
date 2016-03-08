@@ -1,6 +1,8 @@
 var React = require('react-native');
-// var User = require('./app/models/user');
-// const Realm = require('realm');
+var User = require('./app/models/user').default;
+var user = new User("Fred")
+console.log("User: ", user);
+const Realm = require('realm');
 
 'use strict';
 import {
@@ -11,7 +13,7 @@ import {
   View
 } from 'react-native';
 
-class HM extends Component {
+class HM2 extends Component {
   constructor(props) {
     super(props);
     let defaultConfig = {
@@ -25,12 +27,15 @@ class HM extends Component {
   }
 
   render() {
-    // var realm = new Realm({
-    //   schema: User
-    // });
-    // realm.write(()=>{
-    //   realm.create('User', ['Maria']);
-    // })
+    var realm = new Realm({
+      schema: [user.schema],
+      schemaVersion: 4
+    });
+    realm.write(()=>{
+      realm.create('User', { name: user.name, email: user.email, uuid: user.uuid });
+    })
+    let users = realm.objects('User');
+    console.log("Users: ", users);
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
@@ -54,7 +59,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#FFFCFC',
   },
   welcome: {
     fontSize: 20,
@@ -68,4 +73,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('HM', () => HM);
+AppRegistry.registerComponent('HM2', () => HM2);
