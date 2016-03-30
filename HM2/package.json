@@ -4,11 +4,46 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
+    "setup_project": "npm run step1; npm run step2",
+    "step1": "rm -rf node_modules/react-native/node_modules/react; rm -rf node_modules/react-native/node_modules/fbjs; rm -rf node_modules/react/node_modules/fbjs",
+    "step2": "cd node_modules; find . -name .babelrc | grep -v packager | xargs rm",
     "test": "mocha --watch --compilers js:./test/support/compiler --recursive app/**/*.spec.js"
   },
   "dependencies": {
     "react-native": "^0.20.0",
+    "react-redux": "4.4.0",
+    "redux": "3.3.1",
     "realm": "^0.10.0",
     "uuid": "^2.0.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.7.4",
+    "babel-plugin-syntax-async-functions": "^6.5.0",
+    "babel-plugin-syntax-class-properties": "^6.5.0",
+    "babel-plugin-syntax-trailing-function-commas": "^6.5.0",
+    "babel-plugin-transform-class-properties": "^6.6.0",
+    "babel-plugin-transform-es2015-arrow-functions": "^6.5.2",
+    "babel-plugin-transform-es2015-block-scoping": "^6.7.1",
+    "babel-plugin-transform-es2015-classes": "^6.6.5",
+    "babel-plugin-transform-es2015-computed-properties": "^6.6.5",
+    "babel-plugin-transform-es2015-constants": "^6.1.4",
+    "babel-plugin-transform-es2015-destructuring": "^6.6.5",
+    "babel-plugin-transform-es2015-for-of": "^6.6.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.7.4",
+    "babel-plugin-transform-es2015-parameters": "^6.7.0",
+    "babel-plugin-transform-es2015-shorthand-properties": "^6.5.0",
+    "babel-plugin-transform-es2015-spread": "^6.6.5",
+    "babel-plugin-transform-es2015-template-literals": "^6.6.5",
+    "babel-plugin-transform-flow-strip-types": "^6.7.0",
+    "babel-plugin-transform-object-assign": "^6.5.0",
+    "babel-plugin-transform-object-rest-spread": "^6.6.5",
+    "babel-plugin-transform-react-display-name": "^6.5.0",
+    "babel-plugin-transform-react-jsx": "^6.7.4",
+    "babel-plugin-transform-regenerator": "^6.6.5",
+    "babel-preset-react-native": "^1.5.5",
+    "fbjs": "^0.6.1",
+    "mocha": "^2.4.5",
+    "react": "^0.14.8",
+    "react-addons-test-utils": "^0.14.8"
   }
 }

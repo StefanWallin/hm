@@ -8,14 +8,14 @@
   - [x] Scaffold testing
   - [ ] Get testing working
   - [ ] Fix testing of storage
-- [ ] App Configuration Model
+- [x] App Configuration Model
   - [ ] Current User
     - [ ] ID-number
     - [ ] Onboarded
-- [ ] User Model
-  - [ ] ID-number
-  - [ ] Name
-  - [ ] E-Mail (from device?!)
+- [x] User Model
+  - [x] ID-number
+  - [x] Name
+  - [x] E-Mail (from device?!)
 - [ ] Measurements Model
   - [ ] Left Biceps
   - [ ] Right Biceps

@@ -7,15 +7,20 @@ export default class User {
     this.name = name;
   }
 
-  get schema() {
+  data() {
+    return {
+      "uuid": this.uuid,
+      "email": this.email,
+      "name": this.name
+    };
+  }
+
+  static get schema() {
     return {
       name: 'User',
       primaryKey: 'uuid',
       properties: {
-        uuid: {
-          type: 'string',
-          default: UUID.v1()
-        },
+        uuid: 'string',
         name: 'string',
         email: {
           type: 'string',
