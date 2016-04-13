@@ -1,4 +1,4 @@
-import React, { Image, View, StyleSheet } from 'react-native';
+import React, { Image, View } from 'react-native';
 import styles from './Backdrop.styles';
 
 export default class Backdrop extends React.Component {
