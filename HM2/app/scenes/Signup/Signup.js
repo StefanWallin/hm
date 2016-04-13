@@ -1,5 +1,5 @@
 var React = require('react-native');
-import { Image, View, Text, TextInput } from 'react-native';
+import { Image, View, Text, TextInput, TouchableHighlight } from 'react-native';
 import styles from './Signup.styles';
 var Backdrop = require('./../../components/Backdrop/Backdrop').default;
 
@@ -29,6 +29,13 @@ export default class Signup extends React.Component {
             Vi använder din e-post för att du ska kunna byta enhet och behålla
             din data.
           </Text>
+          <TouchableHighlight style={styles.buttonWrapper} underlayColor={'#74B7D9'}>
+            <View style={styles.buttonView}>
+              <Text style={styles.buttonText}>
+                Fortsätt
+              </Text>
+            </View>
+          </TouchableHighlight>
         </View>
       </Backdrop>
     );

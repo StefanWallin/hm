@@ -55,4 +55,23 @@ export default StyleSheet.create({
     color: textColor,
     textAlign: 'center',
   },
+  buttonWrapper: {
+    marginTop: 20,
+    marginLeft: 80,
+    marginRight: 80,
+    borderRadius: 10
+  },
+  buttonView: {
+    height: 44,
+    borderWidth: 1,
+    borderColor: textColor,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  buttonText: {
+    textAlign: 'center',
+    color: textColor,
+    fontSize: 19
+  }
 });
