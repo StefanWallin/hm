@@ -1,4 +1,5 @@
 var React = require('react-native');
+var Backdrop = require('./app/components/Backdrop/Backdrop').default;
 var User = require('./app/models/user').default;
 var Config = require('./app/models/config').default;
 const Realm = require('realm');
@@ -7,7 +8,7 @@ const Realm = require('realm');
 import {
   AppRegistry,
   Component,
-  StatusBar,
+  Image,
   StyleSheet,
   Text,
   TextInput,
@@ -17,17 +18,11 @@ import {
 class HM2 extends Component {
   constructor(props) {
     super(props);
-    let defaultConfig = {
-      "stats": {
-        "opens": 0
-      }
-    };
     this.state = {
-      "config": defaultConfig,
-      "name": '',
       "email": ''
     };
   }
+
 
   render() {
     var realm = new Realm({
@@ -38,7 +33,7 @@ class HM2 extends Component {
     let allUsers = realm.objects('User');
     realm.delete(allUsers);
 
-    // var user = new User("Stefan Wallin", 'hm.dev@stefan-wallin.se')
+    // var user = new User('hm.dev@stefan-wallin.se')
     // console.log("User: ", user);
     // realm.write(()=>{
     //   realm.deleteAll();
@@ -48,10 +43,7 @@ class HM2 extends Component {
     let users = realm.objects('User');
     if(users.length === 1) {
       return (
-        <View style={styles.container}>
-          <StatusBar
-            barStyle="light-content"
-          />
+        <Backdrop>
           <Text style={styles.welcome}>
             Welcome to HM,
           </Text>
@@ -59,73 +51,94 @@ class HM2 extends Component {
             {users['0'].name}
           </Text>
           <Text style={styles.stats}>{this.state.config.stats.opens}</Text>
-        </View>
+        </Backdrop>
       );
     }
     console.log("Users: ", users);
+    logosource = require('./app/assets/images/logo.png')
     return (
-      <View style={styles.container}>
-        <StatusBar
-          barStyle="light-content"
-        />
-        <Text style={styles.welcome}>
-          Welcome to HM!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started please enter your name:
-        </Text>
-        <TextInput
-          style={styles.input}
-          onChangeText={(name) => this.setState({name})}
-          value={this.state.name}
-        />
-        <Text style={styles.instructions}>
-          and email:
-        </Text>
-        <TextInput
-        style={styles.input}
-        onChangeText={(email) => this.setState({email})}
-        value={this.state.email}
-        />
-        <Text style={styles.stats}>{this.state.config.stats.opens}</Text>
-      </View>
+      <Backdrop style={styles.backdrop}>
+        <View style={styles.logoWrapper}>
+          <Image source={logosource} style={styles.logo}></Image>
+        </View>
+        <View style={styles.form}>
+          <Text style={styles.welcome}>
+            Hälsomått
+          </Text>
+          <Text style={styles.instructions}>
+            Ange din e-post för att komma igång:
+          </Text>
+          <View style={styles.inputWrapper}>
+            <TextInput
+              style={styles.input}
+              onChangeText={(email) => this.setState({email})}
+              value={this.state.email}
+            />
+          </View>
+          <Text style={styles.why_email}>
+            Vi använder din e-post för att du ska kunna byta enhet och behålla
+            din data.
+          </Text>
+        </View>
+      </Backdrop>
     );
   }
 }
 
-const textColor = '#8B93A6';
-const backgroundColor = '#1E2128';
+const textColor = '#fefefe';
 const mutedColor = '#777777';
 
 const styles = StyleSheet.create({
-  container: {
+  backdrop: {
     flex: 1,
-    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  logoWrapper: {
+    flex: 3,
     alignItems: 'center',
-    backgroundColor: backgroundColor,
+    justifyContent: 'center',
+    marginTop: 40
+  },
+  logo: {
+    flex: 0.5,
+    alignItems: 'center',
+    resizeMode: 'contain',
+  },
+  form: {
+    flex: 12
   },
   welcome: {
-    fontSize: 20,
+    fontSize: 25,
+    fontWeight: 'bold',
     textAlign: 'center',
-    margin: 10,
+    marginBottom: 10,
     color: textColor,
   },
   instructions: {
+    fontSize: 18,
     textAlign: 'center',
     color: textColor,
-    marginBottom: 5,
+    marginTop: 5,
+    marginBottom: 15,
+  },
+  why_email: {
+    fontSize: 10,
+    marginLeft: 50,
+    marginRight: 50,
+    textAlign: 'center',
+    color: textColor
+  },
+  inputWrapper:  {
+    borderBottomColor: textColor,
+    borderBottomWidth: 1,
+    marginLeft: 30,
+    marginRight: 30,
+    marginBottom: 5
   },
   input: {
     height: 40,
-    marginLeft: 10,
-    marginRight: 10,
-    borderColor: 'gray',
-    borderWidth: 1,
     color: textColor,
     textAlign: 'center',
-  },
-  stats: {
-    color: mutedColor,
   },
 });
 
